@@ -7,6 +7,7 @@ export const Home = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+
     const API = "https://pokeapi.co/api/v2/pokemon?limit=24";
 
     const fetchData = async () => {
@@ -38,12 +39,12 @@ export const Home = () => {
         fetchData();
     }, []);
 
-    console.log(pokemon);
+    // console.log(pokemon);
 
     return (<>
-        <div className="h-screen bg-blue-100 flex flex-col items-center">
+        <div className="bg-blue-100 flex flex-col items-center min-h-screen">
             <h1 className="my-8 p-4 text-4xl font-semibold">Let's Catch Pokemon</h1>
-            <div className="p-4 grid grid-cols-4 gap-4">
+            <div className="p-4 grid grid-cols-4 gap-6 mb-10">
                 {pokemon && (
                     pokemon.map((curPokemon)=>
                         <PokemonCard key={curPokemon.id} pokemon={curPokemon}/>
